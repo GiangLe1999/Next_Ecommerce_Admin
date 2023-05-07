@@ -1,27 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* > * {
+  font-family: "Poppins", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+h1 {
+  @apply text-gray-800 mb-3 text-xl font-bold pt-3;
+}
+
+label {
+  @apply text-gray-600 font-semibold text-sm;
+}
+
+input,
+textarea,
+select {
+  @apply border border-gray-200 rounded-sm p-2 w-full mb-4 text-sm text-gray-600;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-blue-900;
+}
+
+.btn-primary {
+  @apply bg-primary text-white rounded-sm flex items-center gap-1;
+}
+
+.btn-primary:hover {
+  @apply bg-indigo-700;
+}
+
+table.basic {
+  @apply w-full bg-white rounded-sm shadow-md text-gray-600 text-sm;
+}
+
+table.basic thead tr th {
+  @apply text-gray-600 font-semibold uppercase border-b border-gray-200;
+}
+
+table.basic th,
+table.basic td {
+  @apply px-4 py-2 text-left;
+}
+
+table.basic a,
+table.basic button {
+  @apply bg-slate-200 shadow-sm text-gray-800 border border-gray-200;
+  @apply rounded-sm flex items-center gap-1 pl-5 py-1 text-sm min-w-90px max-w-90px;
+}
+
+table.basic a:hover,
+table.basic button:hover {
+  @apply bg-gray-600 text-white;
+}
+
+table.basic button.btn-red {
+  @apply bg-red-200 text-red-600 rounded-sm flex items-center gap-1 pl-3 py-1 text-sm;
+}
+
+table.basic button.btn-red:hover {
+  @apply bg-red-600 text-white;
+}
+
+/* Modal CSS */
+.Backdrop {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.BackdropOpen {
+  display: block;
+}
+
+.BackdropClosed {
+  display: none;
+}
+
+.Modal {
+  position: fixed;
+  z-index: 200;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 2px #ccc;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  top: 30%;
+  left: 30%;
+  width: 40%;
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.6s ease-out;
+}
+
+.ModalOpen {
+  animation: openModal 0.6s ease-out forwards;
+}
+
+.ModalClosed {
+  animation: closeModal 0.6s ease-out forwards;
+}
+
+@keyframes openModal {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(90%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes closeModal {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(60%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+/* Notification */
+.notification {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: hsl(265, 19%, 88%);
+  background-color: hsl(276, 5%, 20%);
+  padding: 0 5rem;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  height: 4rem;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.notification h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.notification p {
+  margin: 0;
+}
+
+.notification.success {
+  background-color: rgb(55, 93, 218);
+  color: #fff;
+}
+
+.notification.error {
+  background-color: #a10c4a;
+}
+
+@media (min-width: 768px) {
+  .notification {
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+  }
+}
+
+/* Product Form Image */
+.productImageWrapper:hover .removeImageBtn {
+  display: block;
 }

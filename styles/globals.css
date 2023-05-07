@@ -25,7 +25,7 @@ select {
 input:focus,
 textarea:focus,
 select:focus {
-  @apply outline-blue-900;
+  @apply outline-primary;
 }
 
 .btn-primary {

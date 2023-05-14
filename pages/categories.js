@@ -295,7 +295,7 @@ const Categories = () => {
           {/* Form Submit Button */}
           <div className="flex items-center gap-2">
             <button type="submit" className="btn-primary py-2 px-4">
-              <SaveIcon /> Save
+              <SaveIcon /> Save category
             </button>
             {editedCategory && (
               <button
@@ -337,9 +337,11 @@ const Categories = () => {
                   className="grid grid-cols-3 sm:grid-cols-2"
                   key={category._id}
                 >
-                  <td>{category.name}</td>
-                  <td className="sm:hidden">{category?.parent?.name}</td>
-                  <td className="flex lg:flex-row flex-col lg:items-center gap-2">
+                  <td className="flex items-center">{category.name}</td>
+                  <td className="sm:hidden flex items-center">
+                    {category?.parent?.name}
+                  </td>
+                  <td className="flex lg:flex-row flex-col lg:items-center gap-2 items-center">
                     <button
                       onClick={() => editCategoryHandler(category)}
                       className="flex"

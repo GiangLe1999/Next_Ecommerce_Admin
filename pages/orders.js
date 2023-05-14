@@ -1,11 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+import Spinner from "@/components/UI/Spinner";
+import prettyDate from "@/lib/date";
+
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    axios.get("/api/orders").then((res) => setOrders(res.data));
+    setIsLoading(true);
+    axios.get("/api/orders").then((res) => {
+      setOrders(res.data);
+      setIsLoading(false);
+    });
   }, []);
 
   return (
@@ -21,19 +29,19 @@ const Orders = () => {
           </tr>
         </thead>
         <tbody>
+          {isLoading && (
+            <tr>
+              <td colSpan={4}>
+                <div className="p-10 text-center w-full">
+                  <Spinner />
+                </div>
+              </td>
+            </tr>
+          )}
           {orders.length > 0 &&
             orders.map((order) => (
               <tr key={order._id}>
-                <td className="w-1/4">
-                  {new Date(order.createdAt).toLocaleDateString("en-US", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </td>
+                <td className="w-1/4">{prettyDate(order.createdAt)}</td>
                 <td
                   className={`w-1/12 font-bold ${
                     order.paid ? "text-green-600" : "text-red-600"

@@ -29,7 +29,7 @@ select:focus {
 }
 
 .btn-primary {
-  @apply bg-primary text-white rounded-sm flex items-center gap-1;
+  @apply bg-primary text-white rounded-sm flex items-center gap-1 text-sm;
 }
 
 .btn-primary:hover {
@@ -61,7 +61,7 @@ table.basic button:hover {
 }
 
 table.basic button.btn-red {
-  @apply bg-red-200 text-red-600 rounded-sm flex items-center gap-1 pl-3 py-1 text-sm;
+  @apply bg-red-200 text-red-600 rounded-sm flex items-center gap-1 pl-2 py-1 text-sm;
 }
 
 table.basic button.btn-red:hover {
@@ -96,12 +96,23 @@ table.basic button.btn-red:hover {
   padding: 10px;
   text-align: center;
   box-sizing: border-box;
-  top: 30%;
-  left: 30%;
-  width: 40%;
-  border-radius: 10px;
+  top: 40%;
+  left: 5%;
+  margin: auto;
+  border-radius: 3px;
   padding: 20px;
   transition: all 0.6s ease-out;
+  width: 90%;
+
+  @media screen and (min-width: 768px) {
+    width: 50%;
+    top: 40%;
+    left: 25%;
+  }
+}
+
+.Modal h1 {
+  font-size: 1rem;
 }
 
 .ModalOpen {

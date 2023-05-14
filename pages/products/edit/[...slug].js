@@ -17,7 +17,11 @@ const EditProductPage = () => {
   }, [id]);
 
   if (!productInfo) {
-    return <Spinner />;
+    return (
+      <div className="p-10">
+        <Spinner />
+      </div>
+    );
   }
 
   return (

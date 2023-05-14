@@ -237,7 +237,7 @@ const ProductForm = ({
               ))}
           </ReactSortable>
           {isUploading && (
-            <div className="h-24 w-24 flex items-center justify-center">
+            <div className="w-32 h-32 flex items-center justify-center bg-white shadow-md rounded-sm border border-gray-200">
               <Spinner />
             </div>
           )}

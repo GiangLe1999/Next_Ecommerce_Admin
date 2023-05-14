@@ -1,5 +1,9 @@
-import { ClipLoader } from "react-spinners";
+import { PulseLoader } from "react-spinners";
 
 export default function Spinner() {
-  return <ClipLoader color={"#1E3A8A"} speedMultiplier={0.5} size={30} />;
+  return (
+    <div className="w-full flex justify-center">
+      <PulseLoader color={"#5542F6"} speedMultiplier={2} />
+    </div>
+  );
 }

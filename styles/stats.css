@@ -1,0 +1,19 @@
+.title {
+  @apply mt-6 mb-4 font-semibold text-gray-500 text-xl uppercase;
+}
+
+.section {
+  @apply bg-white shadow-md p-4 rounded-sm;
+}
+
+.subTitle {
+  @apply uppercase text-gray-500 font-semibold text-sm text-center;
+}
+
+.value {
+  @apply text-center my-4 text-4xl text-primary font-bold;
+}
+
+.desc {
+  @apply text-center text-sm text-gray-500;
+}

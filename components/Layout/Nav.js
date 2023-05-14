@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { signOut } from "next-auth/react";
 
 import {
+  AdminIcon,
   CategoriesIcon,
   DashboardIcon,
   LogoutIcon,
@@ -85,6 +86,16 @@ const Nav = (props) => {
         >
           <OrderIcon />
           Orders
+        </Link>
+        <Link
+          href="/admins"
+          className={pathname.includes("/admins") ? activeLink : inactiveLink}
+          onClick={() => {
+            props.setShowNav(false);
+          }}
+        >
+          <AdminIcon />
+          Admins
         </Link>
         <Link
           href="/settings"

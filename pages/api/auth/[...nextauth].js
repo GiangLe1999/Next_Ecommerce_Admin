@@ -12,6 +12,7 @@ const isAdminEmail = async (email) => {
 };
 
 const authOptions = {
+  secret: process.env.SECRET,
   providers: [
     // OAuth authentication providers...
     GoogleProvider({
